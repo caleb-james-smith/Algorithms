@@ -33,10 +33,12 @@ class GuessingGame:
         print("Let the game begin!")
         print("-----------------------------------------------")
         
+        n_guesses = 0
         game_is_over = False
         while not game_is_over:
             guess = input("Please enter your guess: ")
             guess = int(guess)
+            n_guesses += 1
             eval = self.evaluate(guess, answer)
             if eval == 1:
                 print("Higher...")
@@ -44,6 +46,7 @@ class GuessingGame:
                 print("Lower...")
             elif eval == 0:
                 print("Correct!")
+                print(f"Number of guesses: {n_guesses}")
                 game_is_over = True
             else:
                 print("ERROR: Evaluation failed.")
